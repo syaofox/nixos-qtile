@@ -40,6 +40,11 @@
     enable = true;
     xkb.layout = "us"; # 键盘布局
 
+    # 启用 Qtile 窗口管理器
+    windowManager.qtile = {
+      enable = true;
+    };
+
     # 推荐使用 LightDM 作为登录管理器
     displayManager = {
       lightdm.enable = true;

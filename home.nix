@@ -15,13 +15,9 @@
   # Fcitx5 会在 Qtile 启动时自动启动（见 qtile/config.py 中的 autostart hook）
 
   # 4. Qtile 配置
-  xsession.enable = true; # 启用 X session 管理
-  
-  xsession.windowManager.qtile = {
-    enable = true;
-    # Qtile 配置文件已通过 xdg.configFile 链接到 ./qtile/config.py
-    # Home Manager 会自动安装 qtile 及其依赖
-  };
+  # 注意：Qtile 已在系统级别启用（configuration.nix 中的 services.xserver.windowManager.qtile）
+  # Home Manager 不支持 xsession.windowManager.qtile，因此只管理配置文件
+  xsession.enable = true; # 启用 X session 管理（用于其他 X session 相关配置）
 
   # 5. Git 配置
   programs.git = {
@@ -31,7 +27,7 @@
   };
 
   # 6. 用户安装的软件包
-  # 注意：qtile 通过 xsession.windowManager.qtile 自动安装，无需在此重复
+  # 注意：qtile 已在系统级别安装（configuration.nix），无需在此重复
   home.packages = with pkgs; [
     # Qtile 的 Python 依赖（如果 Qtile 配置需要）
     python3Packages.psutil
