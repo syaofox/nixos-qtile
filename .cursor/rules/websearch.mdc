@@ -3,3 +3,5 @@ alwaysApply: true
 ---
 
 必须搜索网络和nix官网,确保代码不过时
+
+项目为nixos构建,本机环境是archlinux,所以不需要运行测试

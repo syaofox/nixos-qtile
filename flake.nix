@@ -29,10 +29,8 @@
           home-manager.useUserPackages = true;
           
           # 指定用户 syaofox 的 home-manager 配置
-          home-manager.users.syaofox = import ./home.nix {
-            # 传递 Nixpkgs 包集给 home.nix 使用
-            pkgs = nixpkgs.legacyPackages."x86_64-linux";
-          };
+          # Home Manager 会自动传递 config, pkgs 等参数
+          home-manager.users.syaofox = ./home.nix;
         }
       ];
     };
