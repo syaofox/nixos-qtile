@@ -2,6 +2,9 @@
 { config, pkgs, ... }:
 
 {
+  # 0. 启用 Nix Flakes 功能
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # 1. 主机名与用户
   networking.hostName = "nixos-dev";
 

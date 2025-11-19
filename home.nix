@@ -17,8 +17,10 @@
   # 4. Qtile 配置
   xsession.enable = true; # 启用 X session 管理
   
-  services.qtile = {
+  xsession.windowManager.qtile = {
     enable = true;
+    # Qtile 配置文件已通过 xdg.configFile 链接到 ./qtile/config.py
+    # Home Manager 会自动安装 qtile 及其依赖
   };
 
   # 5. Git 配置
@@ -28,10 +30,11 @@
     userEmail = "syaofox@gmail.com";
   };
 
-  # 6. 用户安装的软件包 (包括 Qtile 及其依赖)
+  # 6. 用户安装的软件包
+  # 注意：qtile 通过 xsession.windowManager.qtile 自动安装，无需在此重复
   home.packages = with pkgs; [
-    qtile # 确保 Qtile 本身被安装
-    python3Packages.psutil # Qtile 推荐的依赖（使用 python3Packages 以自动适配默认 Python 版本）
+    # Qtile 的 Python 依赖（如果 Qtile 配置需要）
+    python3Packages.psutil
     
     # 版本控制工具（git 通过 programs.git 自动安装）
     git-lfs
