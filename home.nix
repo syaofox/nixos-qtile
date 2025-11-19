@@ -9,17 +9,10 @@
   # 2. Home Manager 状态版本
   home.stateVersion = "25.05"; 
 
-  # 3. Fcitx5 输入法配置 (用户级启动)
-  services.fcitx5 = {
-    enable = true;
-    # 确保在用户会话中设置输入法相关的环境变量
-    imModule.enable = true; 
-    
-    extraConfig = {
-      # 默认启动拼音输入法
-      "Input Method" = "pinyin";
-    };
-  };
+  # 3. Fcitx5 输入法配置
+  # 注意：fcitx5 已在系统级别配置（configuration.nix），环境变量已在 sessionCommands 中设置
+  # Home Manager 不支持 services.fcitx5，因此通过环境变量和启动脚本处理
+  # Fcitx5 会在 Qtile 启动时自动启动（见 qtile/config.py 中的 autostart hook）
 
   # 4. Qtile 配置
   xsession.enable = true; # 启用 X session 管理
